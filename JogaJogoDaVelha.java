@@ -14,12 +14,11 @@ public class JogaJogoDaVelha {
             JogoDaVelha jogo = new JogoDaVelha(dimensao);
             int i, j;
             while (jogo.vencedor() == 2) {
-                i = random.nextInt(3);
-                j = random.nextInt(3);
+                i = random.nextInt(0, dimensao);
+                j = random.nextInt(0, dimensao);
                 try {
                     jogo.poePeca(i, j);
                 } catch (IllegalArgumentException e) {
-                    System.out.println(e.getMessage());
                     continue;
                 }
 //                System.out.println(jogo.toString());
@@ -35,5 +34,7 @@ public class JogaJogoDaVelha {
             System.out.println("Deseja jogar novamente? (1-sim, 0-nao): ");
             opcao = scanner.nextInt();
         }
+        scanner.close();
     }
+    
 }
